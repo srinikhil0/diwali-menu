@@ -35,7 +35,7 @@ window.MENU = [
     allergens: ["Wheat · 小麦"],
     time: "30 min",
     serves: "4",
-    funFact: "It's “golgappa” in Delhi, “puchka” in Kolkata and “pani puri” in Mumbai — same joy, many names.",
+    funFact: "It goes by many names across India — golgappa, puchka, pani puri — same joy, many names!",
     ingredients: [
       "30 ready-made puris (crispy hollow shells)",
       "2 potatoes, boiled & mashed",
