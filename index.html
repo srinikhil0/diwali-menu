@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14021f">
+<meta name="description" content="Diwali Kitchen — the student-made Diwali food menu at Shizuoka University.">
+<title>Diwali Kitchen · Menu</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪔</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Yatra+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="sky" aria-hidden="true"></canvas>
+
+<main class="home" id="home">
+  <header class="topbar">
+    <div class="logo"><span class="diya" aria-hidden="true">🪔</span><span class="logo-text" id="logoText">Diwali Kitchen</span></div>
+    <span class="live"><i></i>LIVE</span>
+  </header>
+
+  <nav class="tray" id="tray" aria-label="Menu stories"></nav>
+
+  <section class="hero" id="hero">
+    <div class="toran" id="toran" aria-hidden="true"></div>
+    <div class="rangoli" id="rangoli" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="kicker" id="place">Shizuoka University · 静岡大学</p>
+      <h1><span class="h-happy">Happy</span><span class="h-diwali">Diwali</span></h1>
+      <p class="hero-jp">ハッピー・ディワリ ✨ 光の祭典</p>
+      <p class="hero-sub">Home-style Indian food, cooked with love by students.<br>Tap a story to see each dish &amp; its recipe.</p>
+      <button class="cta" id="watchAll"><span class="cta-play">▶</span><span class="cta-t">Watch the menu<small>メニューを見る</small></span></button>
+      <p class="hero-hint">✨ Tap anywhere here for fireworks</p>
+    </div>
+  </section>
+
+  <section class="menu">
+    <div class="menu-head">
+      <h2>Tonight's Menu <small>今日のメニュー</small></h2>
+      <p id="count"></p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <footer class="foot">
+    <p>Made with 🧡 by the students of Shizuoka University</p>
+    <p class="foot-jp">静岡大学の学生による手作りディワリ料理</p>
+  </footer>
+</main>
+
+<!-- Story viewer -->
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Menu story">
+  <div class="viewer-bg" id="viewerBg"></div>
+  <div class="stage" id="stage">
+    <div class="react-tray" id="reactTray" aria-label="Reactions">
+      <button data-emo="😍">😍</button><button data-emo="🔥">🔥</button><button data-emo="🤤">🤤</button><button data-emo="👏">👏</button><button data-emo="🪔">🪔</button><button data-emo="✨">✨</button>
+    </div>
+    <div class="coach" id="coach" hidden>
+      <div class="coach-row">
+        <div><span>👈</span>Tap<br><small>previous</small></div>
+        <div><span>✋</span>Hold<br><small>pause</small></div>
+        <div><span>👉</span>Tap<br><small>next dish</small></div>
+      </div>
+      <div class="coach-up"><span>☝️</span>Swipe up for the recipe<br><small>上にスワイプでレシピ</small></div>
+      <button class="coach-ok" id="coachOk">Got it! 🪔</button>
+    </div>
+    <div class="sheet-wrap" id="sheetWrap">
+      <div class="sheet-backdrop" data-act="sheet-close"></div>
+      <div class="sheet" id="sheet" role="dialog" aria-label="Recipe">
+        <div class="sheet-grab" id="sheetGrab"><i></i></div>
+        <button class="sheet-x" data-act="sheet-close" aria-label="Close recipe">✕</button>
+        <div class="sheet-body" id="sheetBody"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="menu.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diwali Kitchen · QR Poster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Yatra+One&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root{--ink:#1a0429}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Poppins,"Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;background:#2a0845;color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;gap:18px;padding:20px 16px 40px}
+  .tools{width:100%;max-width:640px;background:#fff;color:var(--ink);border-radius:18px;padding:16px;display:grid;gap:10px;box-shadow:0 10px 40px rgba(0,0,0,.35)}
+  .tools label{font-weight:700;font-size:14px}
+  .tools input{width:100%;font:inherit;font-size:15px;padding:12px 14px;border:2px solid #e3d6f0;border-radius:12px}
+  .tools input:focus{outline:none;border-color:#ff2e88}
+  .row{display:flex;gap:10px;flex-wrap:wrap}
+  .row button{flex:1;min-width:140px;font:inherit;font-weight:700;padding:12px;border:0;border-radius:12px;cursor:pointer;color:#fff;background:linear-gradient(90deg,#ff9a1f,#ff2e88)}
+  .row button.alt{background:#2a0845}
+  .warn{font-size:13px;background:#fff3d6;border:1px solid #ffc04d;border-radius:10px;padding:10px 12px}
+  .warn[hidden]{display:none}
+
+  /* poster (A4 portrait ratio) */
+  .poster{position:relative;width:min(100%,640px);aspect-ratio:210/297;border-radius:18px;overflow:hidden;color:#fff;text-align:center;
+    background:radial-gradient(90% 55% at 50% 0%,#7a1fa8 0%,rgba(122,31,168,0) 70%),radial-gradient(70% 40% at 100% 100%,rgba(255,46,136,.55),transparent 70%),radial-gradient(70% 40% at 0% 90%,rgba(255,154,31,.5),transparent 70%),#1a0429;
+    display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:7% 7% 6%;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;container-type:inline-size}
+  .rg{position:absolute;width:120%;left:-10%;top:18%;opacity:.13;pointer-events:none}
+  .top{position:relative}
+  .kicker{display:inline-block;font-weight:700;font-size:2.6cqw;letter-spacing:.12em;padding:1.2cqw 3cqw;border-radius:99px;border:2px solid rgba(255,255,255,.35)}
+  h1{font-family:"Yatra One",serif;font-weight:400;line-height:.95;margin-top:3cqw}
+  h1 .a{display:block;font-size:7cqw;color:#ffe9b3}
+  h1 .b{display:block;font-size:17cqw;background:linear-gradient(90deg,#ffe066,#ff9a1f,#ff2e88);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .jp{font-weight:700;font-size:3.6cqw;letter-spacing:.1em;color:#ffe9b3;margin-top:1.5cqw}
+  .qrbox{position:relative;padding:2.2cqw;border-radius:6cqw;background:conic-gradient(from 0deg,#ffd34d,#ff7a18,#ff2e88,#a83cff,#19d3c5,#ffd34d)}
+  .qrin{background:#fff;border-radius:4.6cqw;padding:4cqw}
+  #qr{width:44cqw;height:44cqw}
+  #qr img,#qr canvas{width:100%!important;height:100%!important;image-rendering:pixelated}
+  .diya{position:absolute;left:50%;bottom:-4.5cqw;transform:translateX(-50%);font-size:8cqw;line-height:1}
+  .scan{font-weight:800;font-size:6cqw;margin-top:2cqw;line-height:1.1}
+  .scan small{display:block;font-size:3.6cqw;font-weight:700;color:#ffe9b3;margin-top:1cqw}
+  .emoji{font-size:6.4cqw;letter-spacing:2cqw}
+  .url{font-size:2.3cqw;opacity:.7;word-break:break-all;margin-top:1.5cqw}
+  .bottom{position:relative}
+  @media print{
+    @page{size:A4 portrait;margin:0}
+    body{background:#fff;padding:0;display:block}
+    .tools{display:none}
+    .poster{width:210mm;height:297mm;aspect-ratio:auto;border-radius:0;container-type:inline-size}
+  }
+</style>
+</head>
+<body>
+  <div class="tools">
+    <label for="url">Menu link (the address of your hosted index.html)</label>
+    <input id="url" type="url" placeholder="https://your-site.netlify.app/" autocomplete="off">
+    <p class="warn" id="warn" hidden>⚠️ This page is open from your computer, so its address only works on this PC. Paste your public link (e.g. from Netlify) above before printing.</p>
+    <div class="row">
+      <button id="print">🖨️ Print poster</button>
+      <button id="dl" class="alt">⬇️ Download QR (PNG)</button>
+      <button id="test" class="alt">🔗 Open link</button>
+    </div>
+  </div>
+
+  <div class="poster" id="poster">
+    <svg class="rg" viewBox="-260 -260 520 520" id="rg" aria-hidden="true"></svg>
+    <div class="top">
+      <span class="kicker">SHIZUOKA UNIVERSITY · 静岡大学</span>
+      <h1><span class="a">Happy</span><span class="b">Diwali</span></h1>
+      <p class="jp">ハッピー・ディワリ ✨ 光の祭典</p>
+    </div>
+    <div class="qrbox"><div class="qrin"><div id="qr"></div></div><span class="diya">🪔</span></div>
+    <div class="bottom">
+      <p class="scan">Scan for tonight's menu &amp; recipes<small>スキャンしてメニューとレシピをチェック！</small></p>
+      <p class="emoji" style="margin-top:2.5cqw">🪔🍛🍚🍲🍮🥛🪔</p>
+      <p class="url" id="urlText"></p>
+    </div>
+  </div>
+
+<script>
+(() => {
+  const input = document.getElementById("url"), warn = document.getElementById("warn"), urlText = document.getElementById("urlText");
+  const local = location.protocol === "file:" || /^(localhost|127\.|\[::1\])/.test(location.hostname);
+  const params = new URLSearchParams(location.search);
+  input.value = params.get("url") || (local ? "" : new URL("./", location.href).href);
+  // rangoli backdrop
+  const L = [{n:24,d:205,rx:13,ry:30},{n:16,d:160,rx:20,ry:44,r:11.25},{n:12,d:108,rx:22,ry:42},{n:8,d:58,rx:20,ry:34,r:22.5}];
+  const cols = ["#ff2e88","#ff9a1f","#19d3c5","#ffd34d"];
+  let s = ""; L.forEach((l,i)=>{ for(let k=0;k<l.n;k++) s += `<ellipse cy="${-l.d}" rx="${l.rx}" ry="${l.ry}" fill="${cols[i]}" transform="rotate(${k*360/l.n+(l.r||0)})"/>`; });
+  document.getElementById("rg").innerHTML = s + '<circle r="30" fill="#ffd34d"/>';
+
+  let qr = null;
+  function render() {
+    const v = input.value.trim();
+    warn.hidden = !(local && !v);
+    urlText.textContent = v;
+    const box = document.getElementById("qr");
+    box.innerHTML = "";
+    if (!v) { box.innerHTML = '<div style="width:100%;height:100%;display:grid;place-items:center;color:#999;font-size:3cqw;text-align:center">Paste your link above ↑</div>'; return; }
+    if (!window.QRCode) { box.textContent = "QR library failed to load — check your internet connection."; return; }
+    qr = new QRCode(box, { text: v, width: 1024, height: 1024, colorDark: "#1a0429", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.H });
+  }
+  input.addEventListener("input", render);
+  document.getElementById("print").onclick = () => window.print();
+  document.getElementById("test").onclick = () => { if (input.value.trim()) window.open(input.value.trim(), "_blank"); };
+  document.getElementById("dl").onclick = () => {
+    const c = document.querySelector("#qr canvas");
+    if (!c) return;
+    // add a white quiet-zone border so phones scan it reliably
+    const pad = 96, out = document.createElement("canvas");
+    out.width = c.width + pad * 2; out.height = c.height + pad * 2;
+    const x = out.getContext("2d"); x.fillStyle = "#fff"; x.fillRect(0, 0, out.width, out.height); x.drawImage(c, pad, pad);
+    const a = document.createElement("a"); a.download = "diwali-menu-qr.png"; a.href = out.toDataURL("image/png"); a.click();
+  };
+  render();
+})();
+</script>
+</body>
+</html>
