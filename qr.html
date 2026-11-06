@@ -44,12 +44,20 @@
   .emoji{font-size:6.4cqw;letter-spacing:2cqw}
   .url{font-size:2.3cqw;opacity:.7;word-break:break-all;margin-top:1.5cqw}
   .bottom{position:relative}
+  .ready{display:flex;gap:10px;flex-wrap:wrap}
+  .ready a{flex:1;min-width:140px;text-align:center;font-weight:700;font-size:14px;padding:11px;border-radius:12px;text-decoration:none;color:#2a0845;background:#f3e9ff;border:2px solid #e3d6f0}
+  .hint{font-size:12.5px;color:#5b4a6b}
+  @page{size:A4 portrait;margin:0}
   @media print{
-    @page{size:A4 portrait;margin:0}
-    body{background:#fff;padding:0;display:block}
-    .tools{display:none}
-    .poster{width:210mm;height:297mm;aspect-ratio:auto;border-radius:0;container-type:inline-size}
+    html,body{width:210mm;height:297mm;margin:0;padding:0;overflow:hidden;background:#1a0429}
+    body{display:block;min-height:0}
+    .tools{display:none!important}
+    .poster{width:210mm;height:297mm;aspect-ratio:auto;border-radius:0;break-inside:avoid;page-break-after:avoid}
   }
+  /* ?only=1 → poster fills the window (used to export poster.png) */
+  body.only{padding:0;display:block;min-height:0}
+  body.only .tools{display:none}
+  body.only .poster{width:100vw;height:100vh;aspect-ratio:auto;border-radius:0}
 </style>
 </head>
 <body>
@@ -62,6 +70,11 @@
       <button id="dl" class="alt">⬇️ Download QR (PNG)</button>
       <button id="test" class="alt">🔗 Open link</button>
     </div>
+    <div class="ready">
+      <a href="poster.pdf" download>📄 Ready-made poster (PDF, A4)</a>
+      <a href="poster.png" download>🖼️ Ready-made poster (PNG)</a>
+    </div>
+    <p class="hint">Printing yourself? In the print window pick <b>“Save as PDF”</b> (not “Microsoft Print to PDF”), set margins to <b>None</b> and tick <b>Background graphics</b>.</p>
   </div>
 
   <div class="poster" id="poster">
@@ -84,6 +97,7 @@
   const input = document.getElementById("url"), warn = document.getElementById("warn"), urlText = document.getElementById("urlText");
   const local = location.protocol === "file:" || /^(localhost|127\.|\[::1\])/.test(location.hostname);
   const params = new URLSearchParams(location.search);
+  if (params.has("only")) document.body.classList.add("only");
   input.value = params.get("url") || (local ? "" : new URL("./", location.href).href);
   // rangoli backdrop
   const L = [{n:24,d:205,rx:13,ry:30},{n:16,d:160,rx:20,ry:44,r:11.25},{n:12,d:108,rx:22,ry:42},{n:8,d:58,rx:20,ry:34,r:22.5}];
