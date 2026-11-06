@@ -29,8 +29,11 @@
     -webkit-print-color-adjust:exact;print-color-adjust:exact;container-type:inline-size}
   .rg{position:absolute;width:120%;left:-10%;top:18%;opacity:.13;pointer-events:none}
   .top{position:relative}
-  .kicker{display:inline-block;font-weight:700;font-size:2.6cqw;letter-spacing:.12em;padding:1.2cqw 3cqw;border-radius:99px;border:2px solid rgba(255,255,255,.35)}
-  h1{font-family:"Yatra One",serif;font-weight:400;line-height:.95;margin-top:3cqw}
+  .logos{display:inline-flex;align-items:center;gap:3cqw;background:#fff;border-radius:3.5cqw;padding:2.2cqw 4cqw;box-shadow:0 1.2cqw 4cqw rgba(0,0,0,.3)}
+  .logos .l-su{height:4cqw;width:auto}
+  .logos .l-emb{height:7cqw;width:auto}
+  .logos i{width:.3cqw;align-self:stretch;background:#ddd3e8}
+  h1{font-family:"Yatra One",serif;font-weight:400;line-height:.95;margin-top:2.6cqw}
   h1 .a{display:block;font-size:7cqw;color:#ffe9b3}
   h1 .b{display:block;font-size:17cqw;background:linear-gradient(90deg,#ffe066,#ff9a1f,#ff2e88);-webkit-background-clip:text;background-clip:text;color:transparent}
   .jp{font-weight:700;font-size:3.6cqw;letter-spacing:.1em;color:#ffe9b3;margin-top:1.5cqw}
@@ -80,13 +83,17 @@
   <div class="poster" id="poster">
     <svg class="rg" viewBox="-260 -260 520 520" id="rg" aria-hidden="true"></svg>
     <div class="top">
-      <span class="kicker">SHIZUOKA UNIVERSITY · 静岡大学</span>
+      <div class="logos">
+        <img class="l-su" src="images/logos/su-wordmark.png" alt="Shizuoka University">
+        <i aria-hidden="true"></i>
+        <img class="l-emb" src="images/logos/embassy-of-india.png" alt="Embassy of India, Tokyo, Japan">
+      </div>
       <h1><span class="a">Happy</span><span class="b">Diwali</span></h1>
       <p class="jp">ハッピー・ディワリ ✨ 光の祭典</p>
     </div>
     <div class="qrbox"><div class="qrin"><div id="qr"></div></div><span class="diya">🪔</span></div>
     <div class="bottom">
-      <p class="scan">Scan for tonight's menu &amp; recipes<small>スキャンしてメニューとレシピをチェック！</small></p>
+      <p class="scan">Scan for the menu &amp; recipes<small>スキャンしてメニューとレシピをチェック！</small></p>
       <p class="emoji" style="margin-top:2.5cqw">🪔🍛🍚🍲🍮🥛🪔</p>
       <p class="url" id="urlText"></p>
     </div>

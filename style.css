@@ -64,6 +64,12 @@ img{display:block;-webkit-user-drag:none;user-select:none}
 .ring-label{font-size:11.5px;font-weight:500;max-width:78px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted)}
 .ring:active .ring-border{transform:scale(.9)}
 
+/* partner logos */
+.partners{margin:0 16px 14px;padding:10px 14px;border-radius:18px;background:#fff;display:flex;align-items:center;justify-content:center;gap:12px;
+  box-shadow:0 12px 30px -14px rgba(255,46,136,.7),0 0 0 1px rgba(255,255,255,.4);animation:rise .7s cubic-bezier(.2,.9,.3,1) .2s both}
+.partners img{width:calc(50% - 13px);max-width:190px;height:auto;object-fit:contain}
+.partners i{width:1px;align-self:stretch;background:#ddd3e8}
+
 /* hero */
 .hero{position:relative;margin:4px 16px 26px;border-radius:28px;overflow:hidden;min-height:420px;
   background:linear-gradient(160deg,rgba(106,17,203,.55),rgba(255,46,136,.25) 55%,rgba(255,154,31,.3));
@@ -122,6 +128,10 @@ img{display:block;-webkit-user-drag:none;user-select:none}
 .c-jp{display:block;font-size:11px;color:#f3e6ff;margin-top:2px}
 
 .foot{text-align:center;font-size:12.5px;color:var(--muted);padding:34px 20px 0}
+.foot-logos{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.f-su{height:38px;width:auto}
+.f-emb{display:inline-block;background:#fff;border-radius:12px;padding:6px 10px}
+.f-emb img{height:30px;width:auto}
 .foot-jp{font-size:11px;opacity:.75;margin-top:4px}
 
 /* ---------- VIEWER ---------- */
