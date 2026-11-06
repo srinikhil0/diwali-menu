@@ -25,7 +25,6 @@
 
   /* ---------------- HOME ---------------- */
   if (EV.name) $("#logoText").textContent = EV.name;
-  if (EV.place) $("#place").textContent = EV.place;
 
   function buildTray() {
     let h = `<button class="ring all" data-i="0" style="--k:0" aria-label="Watch all dishes"><span class="ring-border"><span class="ring-all">🪔</span></span><span class="ring-label">All dishes</span></button>`;

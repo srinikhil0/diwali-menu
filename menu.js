@@ -14,7 +14,6 @@
 window.EVENT = {
   name: "Diwali Kitchen",
   handle: "diwali.kitchen",
-  place: "Shizuoka University · 静岡大学",
 };
 
 window.MENU = [
@@ -32,7 +31,7 @@ window.MENU = [
     veg: true,
     spice: 2,
     price: "",
-    allergens: ["Wheat · 小麦"],
+    allergens: ["Wheat · 小麦", "Chickpea · ひよこ豆"],
     time: "30 min",
     serves: "4",
     funFact: "It goes by many names across India — golgappa, puchka, pani puri — same joy, many names!",
@@ -150,7 +149,7 @@ window.MENU = [
     veg: true,
     spice: 1,
     price: "",
-    allergens: ["Peanut · 落花生"],
+    allergens: ["Peanut · 落花生", "Lentils (dal) · 豆類"],
     time: "20 min",
     serves: "4",
     funFact: "An Indian classic for festivals and journeys — it tastes even better a few hours after cooking.",
@@ -365,7 +364,7 @@ window.MENU = [
     spice: 0,
     sweet: true,
     price: "",
-    allergens: ["Milk · 乳成分", "Cashew · カシューナッツ", "Almond · アーモンド"],
+    allergens: ["Milk · 乳成分", "Cashew · カシューナッツ", "Almond · アーモンド", "Pistachio · ピスタチオ"],
     time: "45 min",
     serves: "4",
     funFact: "Kheer is one of India's oldest desserts — sharing sweets at Diwali is a wish for a sweet new year.",
@@ -483,7 +482,7 @@ window.MENU = [
     spice: 0,
     sweet: true,
     price: "",
-    allergens: ["Milk · 乳成分", "Almond · アーモンド"],
+    allergens: ["Milk · 乳成分", "Almond · アーモンド", "Pistachio · ピスタチオ"],
     time: "20 min",
     serves: "4",
     funFact: "“Badam” means almond in Hindi — badam milk is a favourite at festivals and weddings.",
